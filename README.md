@@ -29,23 +29,29 @@ npm run dev
 
 ## QR-codes genereren
 
-Genereert een PNG per cache in `/qrcodes` die linkt naar `<base-url>/cache/<id>`:
+Genereert een PNG per cache in `/qrcodes` die linkt naar `<base-url>/#/cache/<id>`
+(hash-routing, nodig voor GitHub Pages):
 
 ```bash
-npm run qrcodes -- https://jouw-domein.vercel.app
+npm run qrcodes -- https://thomas-nienhaus.github.io/Bultzak65
 ```
 
-Print de PNG's uit `/qrcodes` en plak ze op de locaties.
+Zonder argument wordt deze URL als standaard gebruikt. Print de PNG's uit
+`/qrcodes` en plak ze op de locaties.
 
-## Deployen
+## Deployen naar GitHub Pages
 
-```bash
-git push
-```
+De workflow `.github/workflows/deploy.yml` bouwt en deployt automatisch bij
+elke push naar `main`. Eenmalig instellen (kan ik niet zelf doen, vereist
+repo-adminrechten):
 
-Importeer de repo in [Vercel](https://vercel.com) of [Netlify](https://netlify.com)
-— beide werken zonder extra configuratie (SPA-rewrites staan al in
-`vercel.json` / `public/_redirects`).
+1. Ga naar **Settings → Pages**
+2. Zet **Source** op **GitHub Actions**
+3. Push naar `main` — de site komt live op
+   `https://thomas-nienhaus.github.io/Bultzak65/`
+
+Let op: `vite.config.js` heeft `base: '/Bultzak65/'` ingesteld voor deze
+repo-naam. Bij een andere/hernoemde repo moet dat pad mee aangepast worden.
 
 ## Testen voor het event
 

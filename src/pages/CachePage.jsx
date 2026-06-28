@@ -1,18 +1,39 @@
 import { useState } from 'react'
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { getCacheById, getAllCaches, calculateScore } from '../utils/scoring'
-import { getTeam, getFoundCaches, markCacheFound, isCacheFound } from '../utils/storage'
+import { getTeam, setTeam, getFoundCaches, markCacheFound, isCacheFound } from '../utils/storage'
 
 export default function CachePage() {
   const { id } = useParams()
-  const navigate = useNavigate()
   const cache = getCacheById(id)
-  const team = getTeam()
+  const [team, setTeamState] = useState(getTeam())
+  const [teamInput, setTeamInput] = useState('')
   const [found, setFound] = useState(isCacheFound(Number(id)))
 
   if (!team) {
-    navigate('/')
-    return null
+    return (
+      <div className="page">
+        <h1>🏆 Schatzoektocht</h1>
+        <p>Voer je teamnaam in om verder te gaan.</p>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault()
+            if (!teamInput.trim()) return
+            setTeam(teamInput.trim())
+            setTeamState(teamInput.trim())
+          }}
+        >
+          <input
+            type="text"
+            value={teamInput}
+            onChange={(e) => setTeamInput(e.target.value)}
+            placeholder="Teamnaam"
+            autoFocus
+          />
+          <button type="submit">Start</button>
+        </form>
+      </div>
+    )
   }
 
   if (!cache) {
