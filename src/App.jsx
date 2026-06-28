@@ -3,6 +3,7 @@ import StartPage from './pages/StartPage'
 import CachePage from './pages/CachePage'
 import FinishPage from './pages/FinishPage'
 import AdminPage from './pages/AdminPage'
+import TeamJoinPage from './pages/TeamJoinPage'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       </nav>
       <Routes>
         <Route path="/" element={<StartPage />} />
+        <Route path="/team/:name" element={<TeamJoinPage />} />
         <Route path="/cache/:id" element={<CachePage />} />
         <Route path="/finish" element={<FinishPage />} />
         <Route path="/admin" element={<AdminPage />} />
