@@ -1,0 +1,129 @@
+:root {
+  --text: #2c2c2c;
+  --bg: #fdfdfd;
+  --accent: #1f8a4c;
+  --accent-dark: #166538;
+  --border: #ddd;
+  font: 18px/145% system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.topnav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.page {
+  padding: 24px 20px 60px;
+  text-align: center;
+  flex: 1;
+}
+
+h1 {
+  font-size: 32px;
+  margin: 8px 0 16px;
+}
+
+.points {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent-dark);
+  margin-bottom: 16px;
+}
+
+.hint {
+  background: #f4f4f4;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px 0;
+}
+
+.hint h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+input[type='text'] {
+  width: 100%;
+  font-size: 18px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+button,
+.button-link {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+button:active,
+.button-link:active {
+  background: var(--accent-dark);
+}
+
+.success {
+  color: var(--accent-dark);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.score-footer {
+  margin-top: 32px;
+  color: #888;
+  font-size: 15px;
+}
+
+.note {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 16px;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+}
+
+.admin-table th,
+.admin-table td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px;
+  text-align: left;
+}

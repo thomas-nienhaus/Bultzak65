@@ -1,0 +1,35 @@
+{
+  "caches": [
+    {
+      "id": 1,
+      "name": "Start",
+      "points": 50,
+      "hint": "Zoek de plek waar iedereen koffie drinkt."
+    },
+    {
+      "id": 2,
+      "name": "Bij het water",
+      "points": 100,
+      "hint": "Bij het water waar de boten liggen."
+    },
+    {
+      "id": 3,
+      "name": "Onder de boom",
+      "points": 75,
+      "hint": "De grootste boom op het terrein."
+    },
+    {
+      "id": 4,
+      "name": "Speeltuin",
+      "points": 50,
+      "hint": "Waar de kinderen spelen."
+    },
+    {
+      "id": 5,
+      "name": "Finish",
+      "points": 150,
+      "hint": "Terug naar het beginpunt voor de laatste opdracht.",
+      "golden": true
+    }
+  ]
+}
