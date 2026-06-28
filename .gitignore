@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 qrcodes
+qrcodes-teams
 
 # Editor directories and files
 .vscode/*

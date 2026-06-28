@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { getCacheById, getAllCaches, calculateScore } from '../utils/scoring'
 import { getTeam, setTeam, getFoundCaches, markCacheFound, isCacheFound } from '../utils/storage'
+import { recordFind } from '../utils/supabase'
 
 export default function CachePage() {
   const { id } = useParams()
@@ -48,6 +49,7 @@ export default function CachePage() {
   function handleFound() {
     markCacheFound(cache.id)
     setFound(true)
+    recordFind(team, cache.id).catch(() => {})
   }
 
   const allCaches = getAllCaches()

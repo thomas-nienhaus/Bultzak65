@@ -1,16 +1,23 @@
 # QR Schatzoektocht
 
-Statische QR-code schatzoektocht app. Geen backend, geen database — alles
-draait client-side met een JSON-bestand voor de caches en `localStorage` voor
-teamnaam en score.
+Statische QR-code schatzoektocht app. De UI is volledig client-side (React +
+Vite, gehost op GitHub Pages); gevonden caches worden ook naar Supabase
+gestuurd zodat de organisator een live overzicht over alle teams heeft.
 
 ## Hoe het werkt
 
 - Elke cache heeft een eigen pagina op `/cache/<id>` (zie `src/data/caches.json`)
-- Teams kiezen een naam op de startpagina; dit wordt opgeslagen in `localStorage`
-- Bij elke cache klikt het team op "Gevonden!" om punten te verdienen
-- `/admin` toont de voortgang van het team **op dat toestel** (geen gedeelde
-  database tussen telefoons — elk team scant op zijn eigen telefoon)
+- Teams scannen een team-QR (`/team/<teamnaam>`) om automatisch aan te melden
+  met hun teamnaam al ingevuld — zie `src/data/teams.json` en
+  `npm run qrcodes:teams`
+- Bij elke cache klikt het team op "Gevonden!" om punten te verdienen; dit
+  wordt opgeslagen in `localStorage` op het toestel én in de gedeelde
+  Supabase-tabel `finds`
+- `/admin` toont alleen de voortgang van het **eigen team op dat toestel**
+- `/beheer` toont het volledige live scorebord van alle teams, achter een
+  pincode (`VITE_ADMIN_PIN` in `.env`). Let op: dit is een laagdrempelige
+  drempel, geen echte beveiliging — de pincode-check draait client-side en
+  staat dus in de publieke JS-bundel van de site.
 
 ## Caches aanpassen
 

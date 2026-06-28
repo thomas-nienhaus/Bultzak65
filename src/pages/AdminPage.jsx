@@ -19,10 +19,7 @@ export default function AdminPage() {
   return (
     <div className="page">
       <h1>📋 Overzicht</h1>
-      <p className="note">
-        Dit overzicht toont enkel de voortgang op dit toestel (geen backend, geen
-        gedeelde database). Elk team gebruikt zijn eigen telefoon.
-      </p>
+      <p className="note">Dit overzicht toont enkel de voortgang van jouw eigen team.</p>
       <p>
         Team: <strong>{team || '(nog niet gestart)'}</strong>
       </p>
